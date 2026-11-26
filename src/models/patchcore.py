@@ -166,10 +166,10 @@ class PatchCore(nn.Module):
         # Distance computation to memory bank
         if HAS_FAISS and self.faiss_index is not None:
             distances, _ = self.faiss_index.search(patches_np, self.n_neighbors)
+            patch_scores = np.sqrt(np.maximum(distances[:, 0], 0.0)) # FAISS IndexFlatL2 returns squared L2
         else:
             distances, _ = self.knn.kneighbors(patches_np)
-
-        patch_scores = np.sqrt(distances[:, 0]) # Nearest neighbor L2 distance
+            patch_scores = distances[:, 0] # sklearn euclidean metric already returns L2 distance
 
         # Reshape to spatial feature grid (H, W)
         heatmap_grid = patch_scores.reshape(H, W)

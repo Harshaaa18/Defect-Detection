@@ -304,9 +304,10 @@ def serve_dataset_image():
 @app.route("/api/predict", methods=["POST"])
 def run_prediction():
     start_time = time.time()
-    category = request.form.get("category") or (request.json and request.json.get("category")) or "bottle"
-    threshold = float(request.form.get("threshold") or (request.json and request.json.get("threshold")) or DEFAULT_THRESHOLDS.get(category, 0.50))
-    backbone_name = request.form.get("backbone") or (request.json and request.json.get("backbone")) or "resnet18"
+    json_data = request.get_json(silent=True) or {}
+    category = request.form.get("category") or json_data.get("category") or "bottle"
+    threshold = float(request.form.get("threshold") or json_data.get("threshold") or DEFAULT_THRESHOLDS.get(category, 2.70))
+    backbone_name = request.form.get("backbone") or json_data.get("backbone") or "resnet18"
 
     raw_pil_img = None
     defect_label = "unknown"
@@ -316,9 +317,16 @@ def run_prediction():
     if "file" in request.files:
         uploaded_file = request.files["file"]
         raw_pil_img = Image.open(uploaded_file.stream).convert("RGB")
-        defect_label = "user_upload"
-    elif request.json and request.json.get("dataset_path"):
-        dataset_rel_path = request.json.get("dataset_path")
+        fname = uploaded_file.filename or "user_upload"
+        # Extract defect label if uploaded from bundled sample name like bottle_broken_large_000.png
+        if fname.startswith(f"{category}_"):
+            stripped = os.path.splitext(fname[len(category) + 1:])[0]
+            parts_f = stripped.rsplit("_", 1)
+            defect_label = parts_f[0] if len(parts_f) == 2 and parts_f[1].isdigit() else stripped
+        else:
+            defect_label = "user_upload"
+    elif json_data.get("dataset_path"):
+        dataset_rel_path = json_data.get("dataset_path")
         parts = dataset_rel_path.replace("\\", "/").strip("/").split("/")
         if len(parts) >= 4:
             category, split, defect, filename = parts[0], parts[1], parts[2], parts[3]
@@ -345,7 +353,16 @@ def run_prediction():
             ]
             # Try to match defect name if available
             if len(parts) >= 3:
-                defect_label = parts[2] if len(parts) >= 4 else parts[1]
+                if parts[0] == "samples":
+                    fname_base = os.path.splitext(parts[-1])[0]
+                    if fname_base.startswith(f"{category}_"):
+                        stripped = fname_base[len(category) + 1:]
+                        parts_f = stripped.rsplit("_", 1)
+                        defect_label = parts_f[0] if len(parts_f) == 2 and parts_f[1].isdigit() else stripped
+                    else:
+                        defect_label = fname_base
+                else:
+                    defect_label = parts[2] if len(parts) >= 4 else parts[1]
                 candidates.append(os.path.join(PROJECT_ROOT, "public", "samples", category, f"{category}_{defect_label}_{parts[-1]}"))
             
             for cand in candidates:

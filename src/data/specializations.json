@@ -1,0 +1,290 @@
+[
+  {
+    "id": "SP47",
+    "name": "- 5 - G - \u2013 - 6 - G -   - W - I - R - E - L - E - S - S -   - T - E - C - H - N - O - L - O - G - I - E - S -",
+    "color": "#7C3AED",
+    "projectCount": 21
+  },
+  {
+    "id": "SP01",
+    "name": "- A - G - R - I - - - B - i - o - t - e - c - h - n - o - l - o - g - y -",
+    "color": "#4C51BF",
+    "projectCount": 12
+  },
+  {
+    "id": "SP02",
+    "name": "- A - I -   - & -   - A - U - T - O - N - O - M - O - U - S -   - S - Y - S - T - E - M - S -",
+    "color": "#0E7C86",
+    "projectCount": 68
+  },
+  {
+    "id": "SP03",
+    "name": "- A - I -   - f - o - r -   - C - o - m - p - u - t - a - t - i - o - n - a - l -   - I - n - t - e - l - l - i - g - e - n - c - e -",
+    "color": "#2B6CB0",
+    "projectCount": 237
+  },
+  {
+    "id": "SP04",
+    "name": "- A - I -   - S - y - s - t - e - m - s -   - f - o - r -   - V - i - s - u - a - l -   - I - n - t - e - l - l - i - g - e - n - c - e -",
+    "color": "#6B46C1",
+    "projectCount": 202
+  },
+  {
+    "id": "SP05",
+    "name": "- A - I - - - D - r - i - v - e - n -   - E - d - g - e -   - A - r - c - h - i - t - e - c - t - u - r - e - s -   - & -   - A - p - p - l - i - c - a - t - i - o - n - s -",
+    "color": "#B7791F",
+    "projectCount": 27
+  },
+  {
+    "id": "SP06",
+    "name": "- A - I - - - D - r - i - v - e - n -   - L - a - n - g - u - a - g - e -   - T - e - c - h - n - o - l - o - g - i - e - s -",
+    "color": "#2F855A",
+    "projectCount": 183
+  },
+  {
+    "id": "SP07",
+    "name": "- A - u - t - o - m - o - t - i - v - e -   - E - l - e - c - t - r - o - n - i - c - s -   - & -   - A - u - t - o - s - a - r -",
+    "color": "#0E7490",
+    "projectCount": 5
+  },
+  {
+    "id": "SP08",
+    "name": "- A - U - T - O - M - O - T - I - V - E -   - E - N - E - R - G - Y -   - E - N - G - I - N - E - E - R - I - N - G -",
+    "color": "#B83280",
+    "projectCount": 10
+  },
+  {
+    "id": "SP09",
+    "name": "- B - I - O - I - N - F - O - R - M - A - T - I - C - S -",
+    "color": "#475569",
+    "projectCount": 30
+  },
+  {
+    "id": "SP10",
+    "name": "- B - l - o - c - k - c - h - a - i - n -   - E - n - g - i - n - e - e - r - i - n - g -   - f - o - r -   - W - e - b - 3 -",
+    "color": "#C0392B",
+    "projectCount": 31
+  },
+  {
+    "id": "SP11",
+    "name": "- C - L - O - U - D -   - & -   - E - D - G - E -   - C - O - M - P - U - T - I - N - G -",
+    "color": "#7C3AED",
+    "projectCount": 54
+  },
+  {
+    "id": "SP12",
+    "name": "- C - l - o - u - d -   - I - n - f - r - a - s - t - r - u - c - t - u - r - e -   - D - e - s - i - g - n -   - & -   - E - n - g - i - n - e - e - r - i - n - g -",
+    "color": "#DB8B2A",
+    "projectCount": 58
+  },
+  {
+    "id": "SP13",
+    "name": "- C - l - o - u - d -   - N - a - t - i - v - e -   - S - e - c - u - r - i - t - y -",
+    "color": "#4C51BF",
+    "projectCount": 8
+  },
+  {
+    "id": "SP14",
+    "name": "- C - l - o - u - d -   - N - a - t - i - v - e -   - S - o - f - t - w - a - r - e -   - E - n - g - i - n - e - e - r - i - n - g -",
+    "color": "#0E7C86",
+    "projectCount": 75
+  },
+  {
+    "id": "SP15",
+    "name": "- C - l - o - u - d - - - B - a - s - e - d -   - S - c - i - e - n - t - i - f - i - c -   - C - o - m - p - u - t - i - n - g -",
+    "color": "#2B6CB0",
+    "projectCount": 9
+  },
+  {
+    "id": "SP16",
+    "name": "- C - o - n - s - t - r - u - c - t - i - o - n -   - T - e - c - h - n - o - l - o - g - y -   - a - n - d -   - M - a - n - a - g - e - m - e - n - t -",
+    "color": "#6B46C1",
+    "projectCount": 16
+  },
+  {
+    "id": "SP17",
+    "name": "- C - r - o - s - s -   - P - l - a - t - f - o - r - m -   - D - e - v - e - l - o - p - m - e - n - t -   - F - r - a - m - e - w - o - r - k - s -",
+    "color": "#B7791F",
+    "projectCount": 45
+  },
+  {
+    "id": "SP18",
+    "name": "- C - y - b - e - r -   - P - h - y - s - i - c - a - l -   - S - y - s - t - e - m - s -   - & -   - I - o - T -",
+    "color": "#2F855A",
+    "projectCount": 5
+  },
+  {
+    "id": "SP19",
+    "name": "- C - Y - B - E - R -   - S - E - C - U - R - I - T - Y -   - & -   - B - L - O - C - K - C - H - A - I - N -   - T - E - C - H - N - O - L - O - G - Y -",
+    "color": "#0E7490",
+    "projectCount": 226
+  },
+  {
+    "id": "SP20",
+    "name": "- D - A - T - A -   - C - O - M - M - U - N - I - C - A - T - I - O - N - S -",
+    "color": "#B83280",
+    "projectCount": 3
+  },
+  {
+    "id": "SP21",
+    "name": "- D - a - t - a -   - E - n - g - i - n - e - e - r - i - n - g -   - f - o - r -   - A - I -",
+    "color": "#475569",
+    "projectCount": 129
+  },
+  {
+    "id": "SP22",
+    "name": "- D - a - t - a -   - S - c - i - e - n - c - e -   - & -   - B - i - g -   - D - a - t - a -   - A - n - a - l - y - t - i - c - s -",
+    "color": "#C0392B",
+    "projectCount": 204
+  },
+  {
+    "id": "SP23",
+    "name": "- D - i - s - t - r - i - b - u - t - e - d -   - L - e - d - g - e - r -   - A - n - a - l - y - t - i - c - s -",
+    "color": "#7C3AED",
+    "projectCount": 44
+  },
+  {
+    "id": "SP25",
+    "name": "- E - - - M - O - B - I - L - I - T - Y -   - E - N - G - I - N - E - E - R - I - N - G -",
+    "color": "#4C51BF",
+    "projectCount": 5
+  },
+  {
+    "id": "SP24",
+    "name": "- E - M - B - E - D - D - E - D -   - S - Y - S - T - E - M - S -",
+    "color": "#DB8B2A",
+    "projectCount": 57
+  },
+  {
+    "id": "SP26",
+    "name": "- E - n - g - i - n - e - e - r - i - n - g -   - D - e - s - i - g - n -",
+    "color": "#0E7C86",
+    "projectCount": 5
+  },
+  {
+    "id": "SP27",
+    "name": "- G - a - m - e -   - D - e - v - e - l - o - p - m - e - n - t -   - & -   - U - X -   - D - e - s - i - g - n -",
+    "color": "#2B6CB0",
+    "projectCount": 36
+  },
+  {
+    "id": "SP30",
+    "name": "- G - E - N - E - R - A - T - I - V - E -   - A - I -   - & -   - M - A - C - H - I - N - E -   - L - E - A - R - N - I - N - G -",
+    "color": "#2F855A",
+    "projectCount": 161
+  },
+  {
+    "id": "SP28",
+    "name": "- G - e - o - T - e - c - h - n - i - c - a - l -   - & -   - T - r - a - n - s - p - o - r - t - a - t - i - o - n -   - E - n - g - i - n - e - e - r - i - n - g -",
+    "color": "#6B46C1",
+    "projectCount": 25
+  },
+  {
+    "id": "SP29",
+    "name": "- G - r - e - e - n -   - E - n - e - r - g - y -   - T - e - c - h - n - o - l - o - g - i - e - s -",
+    "color": "#B7791F",
+    "projectCount": 26
+  },
+  {
+    "id": "SP31",
+    "name": "- H - a - r - d - w - a - r - e - - - S - o - f - t - w - a - r - e -   - c - o - - - d - e - s - i - g - n -   - f - o - r -   - S - e - c - u - r - i - t - y -",
+    "color": "#0E7490",
+    "projectCount": 5
+  },
+  {
+    "id": "SP32",
+    "name": "- H - e - a - l - t - h - C - a - r - e -   - D - a - t - a -   - A - n - a - l - y - t - i - c - s -",
+    "color": "#B83280",
+    "projectCount": 53
+  },
+  {
+    "id": "SP48",
+    "name": "- H - i - g - h - - - F - r - e - q - u - e - n - c - y -   - T - r - a - d - i - n - g -   - & -   - Q - u - a - n - t - u - m -   - F - i - n - a - n - c - e -",
+    "color": "#0F766E",
+    "projectCount": 18
+  },
+  {
+    "id": "SP33",
+    "name": "- I - N - D - U - S - T - R - I - A - L -   - A - U - T - O - M - A - T - I - O - N -",
+    "color": "#475569",
+    "projectCount": 14
+  },
+  {
+    "id": "SP34",
+    "name": "- I - N - D - U - S - T - R - I - A - L -   - B - I - O - T - E - C - H - N - O - L - O - G - Y -",
+    "color": "#C0392B",
+    "projectCount": 22
+  },
+  {
+    "id": "SP35",
+    "name": "- I - O - T -   - A - n - a - l - y - t - i - c - s -",
+    "color": "#7C3AED",
+    "projectCount": 5
+  },
+  {
+    "id": "SP36",
+    "name": "- M - e - d - i - c - a - l -   - B - i - o - t - e - c - h - n - o - l - o - g - y -",
+    "color": "#DB8B2A",
+    "projectCount": 25
+  },
+  {
+    "id": "SP37",
+    "name": "- N - a - n - o -   - T - e - c - h - n - o - l - o - g - y -   - & -   - O - p - t - o - e - l - e - c - t - r - o - n - i - c - s -",
+    "color": "#4C51BF",
+    "projectCount": 22
+  },
+  {
+    "id": "SP38",
+    "name": "- R - o - b - o - t - i - c - s -   - & -   - A - u - t - o - m - a - t - i - o - n -",
+    "color": "#0E7C86",
+    "projectCount": 23
+  },
+  {
+    "id": "SP39",
+    "name": "- S - m - a - r - t -   - G - r - i - d -   - T - e - c - h - n - o - l - o - g - i - e - s -",
+    "color": "#2B6CB0",
+    "projectCount": 5
+  },
+  {
+    "id": "SP40",
+    "name": "- S - m - a - r - t -   - M - a - n - u - f - a - c - t - u - r - i - n - g -",
+    "color": "#6B46C1",
+    "projectCount": 18
+  },
+  {
+    "id": "SP41",
+    "name": "- S - O - C - I - A - L -   - & -   - D - I - G - I - T - A - L -   - M - E - D - I - A -   - A - N - A - L - Y - T - I - C - S -",
+    "color": "#B7791F",
+    "projectCount": 36
+  },
+  {
+    "id": "SP42",
+    "name": "- S - O - F - T - W - A - R - E -   - M - O - D - E - L - L - I - N - G -   - & -   - D - E - V - O - P - S -",
+    "color": "#2F855A",
+    "projectCount": 194
+  },
+  {
+    "id": "SP43",
+    "name": "- S - p - a - t - i - a - l -   - C - o - m - p - u - t - i - n - g -   - & -   - I - m - m - e - r - s - i - v - e -   - T - e - c - h - n - o - l - o - g - i - e - s -",
+    "color": "#0E7490",
+    "projectCount": 12
+  },
+  {
+    "id": "SP44",
+    "name": "- S - t - r - u - c - t - u - r - a - l -   - E - n - g - i - n - e - e - r - i - n - g -",
+    "color": "#B83280",
+    "projectCount": 9
+  },
+  {
+    "id": "SP45",
+    "name": "- V - L - S - I -",
+    "color": "#475569",
+    "projectCount": 108
+  },
+  {
+    "id": "SP46",
+    "name": "- W - a - t - e - r -   - R - e - s - o - u - r - c - e -   - & -   - E - n - v - i - r - o - n - m - e - n - t - a - l -   - E - n - g - i - n - e - e - r - i - n - g -",
+    "color": "#C0392B",
+    "projectCount": 17
+  }
+]

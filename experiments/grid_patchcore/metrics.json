@@ -1,0 +1,7 @@
+{
+  "category": "grid",
+  "image_auroc": 0.8446115288220551,
+  "pixel_auroc": 0.9618814464298575,
+  "pro_score": 0.5729700750109457,
+  "num_test_images": 78
+}

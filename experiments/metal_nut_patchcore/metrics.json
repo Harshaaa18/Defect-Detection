@@ -1,0 +1,7 @@
+{
+  "category": "metal_nut",
+  "image_auroc": 0.9921798631476051,
+  "pixel_auroc": 0.9693429181681361,
+  "pro_score": 0.6120623967740768,
+  "num_test_images": 115
+}

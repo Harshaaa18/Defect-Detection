@@ -1,0 +1,7 @@
+{
+  "category": "zipper",
+  "image_auroc": 0.9648109243697479,
+  "pixel_auroc": 0.9833121050299064,
+  "pro_score": 0.3476755945830027,
+  "num_test_images": 151
+}

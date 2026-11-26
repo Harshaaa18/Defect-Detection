@@ -1,0 +1,354 @@
+[
+  {
+    "category": "bottle",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "bottle_good_000.png",
+    "url": "/samples/bottle/bottle_good_000.png",
+    "label": "Bottle: Good (Nominal)"
+  },
+  {
+    "category": "bottle",
+    "defect_type": "broken_large",
+    "is_defect": true,
+    "filename": "bottle_broken_large_000.png",
+    "url": "/samples/bottle/bottle_broken_large_000.png",
+    "label": "Bottle: Broken Large"
+  },
+  {
+    "category": "bottle",
+    "defect_type": "broken_small",
+    "is_defect": true,
+    "filename": "bottle_broken_small_000.png",
+    "url": "/samples/bottle/bottle_broken_small_000.png",
+    "label": "Bottle: Broken Small"
+  },
+  {
+    "category": "cable",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "cable_good_000.png",
+    "url": "/samples/cable/cable_good_000.png",
+    "label": "Cable: Good (Nominal)"
+  },
+  {
+    "category": "cable",
+    "defect_type": "bent_wire",
+    "is_defect": true,
+    "filename": "cable_bent_wire_000.png",
+    "url": "/samples/cable/cable_bent_wire_000.png",
+    "label": "Cable: Bent Wire"
+  },
+  {
+    "category": "cable",
+    "defect_type": "cable_swap",
+    "is_defect": true,
+    "filename": "cable_cable_swap_000.png",
+    "url": "/samples/cable/cable_cable_swap_000.png",
+    "label": "Cable: Cable Swap"
+  },
+  {
+    "category": "capsule",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "capsule_good_000.png",
+    "url": "/samples/capsule/capsule_good_000.png",
+    "label": "Capsule: Good (Nominal)"
+  },
+  {
+    "category": "capsule",
+    "defect_type": "crack",
+    "is_defect": true,
+    "filename": "capsule_crack_000.png",
+    "url": "/samples/capsule/capsule_crack_000.png",
+    "label": "Capsule: Crack"
+  },
+  {
+    "category": "capsule",
+    "defect_type": "faulty_imprint",
+    "is_defect": true,
+    "filename": "capsule_faulty_imprint_000.png",
+    "url": "/samples/capsule/capsule_faulty_imprint_000.png",
+    "label": "Capsule: Faulty Imprint"
+  },
+  {
+    "category": "carpet",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "carpet_good_000.png",
+    "url": "/samples/carpet/carpet_good_000.png",
+    "label": "Carpet: Good (Nominal)"
+  },
+  {
+    "category": "carpet",
+    "defect_type": "color",
+    "is_defect": true,
+    "filename": "carpet_color_000.png",
+    "url": "/samples/carpet/carpet_color_000.png",
+    "label": "Carpet: Color"
+  },
+  {
+    "category": "carpet",
+    "defect_type": "cut",
+    "is_defect": true,
+    "filename": "carpet_cut_000.png",
+    "url": "/samples/carpet/carpet_cut_000.png",
+    "label": "Carpet: Cut"
+  },
+  {
+    "category": "grid",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "grid_good_000.png",
+    "url": "/samples/grid/grid_good_000.png",
+    "label": "Grid: Good (Nominal)"
+  },
+  {
+    "category": "grid",
+    "defect_type": "bent",
+    "is_defect": true,
+    "filename": "grid_bent_000.png",
+    "url": "/samples/grid/grid_bent_000.png",
+    "label": "Grid: Bent"
+  },
+  {
+    "category": "grid",
+    "defect_type": "broken",
+    "is_defect": true,
+    "filename": "grid_broken_000.png",
+    "url": "/samples/grid/grid_broken_000.png",
+    "label": "Grid: Broken"
+  },
+  {
+    "category": "hazelnut",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "hazelnut_good_000.png",
+    "url": "/samples/hazelnut/hazelnut_good_000.png",
+    "label": "Hazelnut: Good (Nominal)"
+  },
+  {
+    "category": "hazelnut",
+    "defect_type": "crack",
+    "is_defect": true,
+    "filename": "hazelnut_crack_000.png",
+    "url": "/samples/hazelnut/hazelnut_crack_000.png",
+    "label": "Hazelnut: Crack"
+  },
+  {
+    "category": "hazelnut",
+    "defect_type": "cut",
+    "is_defect": true,
+    "filename": "hazelnut_cut_000.png",
+    "url": "/samples/hazelnut/hazelnut_cut_000.png",
+    "label": "Hazelnut: Cut"
+  },
+  {
+    "category": "leather",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "leather_good_000.png",
+    "url": "/samples/leather/leather_good_000.png",
+    "label": "Leather: Good (Nominal)"
+  },
+  {
+    "category": "leather",
+    "defect_type": "color",
+    "is_defect": true,
+    "filename": "leather_color_000.png",
+    "url": "/samples/leather/leather_color_000.png",
+    "label": "Leather: Color"
+  },
+  {
+    "category": "leather",
+    "defect_type": "cut",
+    "is_defect": true,
+    "filename": "leather_cut_000.png",
+    "url": "/samples/leather/leather_cut_000.png",
+    "label": "Leather: Cut"
+  },
+  {
+    "category": "metal_nut",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "metal_nut_good_000.png",
+    "url": "/samples/metal_nut/metal_nut_good_000.png",
+    "label": "Metal_Nut: Good (Nominal)"
+  },
+  {
+    "category": "metal_nut",
+    "defect_type": "bent",
+    "is_defect": true,
+    "filename": "metal_nut_bent_000.png",
+    "url": "/samples/metal_nut/metal_nut_bent_000.png",
+    "label": "Metal_Nut: Bent"
+  },
+  {
+    "category": "metal_nut",
+    "defect_type": "color",
+    "is_defect": true,
+    "filename": "metal_nut_color_000.png",
+    "url": "/samples/metal_nut/metal_nut_color_000.png",
+    "label": "Metal_Nut: Color"
+  },
+  {
+    "category": "pill",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "pill_good_000.png",
+    "url": "/samples/pill/pill_good_000.png",
+    "label": "Pill: Good (Nominal)"
+  },
+  {
+    "category": "pill",
+    "defect_type": "color",
+    "is_defect": true,
+    "filename": "pill_color_000.png",
+    "url": "/samples/pill/pill_color_000.png",
+    "label": "Pill: Color"
+  },
+  {
+    "category": "pill",
+    "defect_type": "combined",
+    "is_defect": true,
+    "filename": "pill_combined_000.png",
+    "url": "/samples/pill/pill_combined_000.png",
+    "label": "Pill: Combined"
+  },
+  {
+    "category": "screw",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "screw_good_000.png",
+    "url": "/samples/screw/screw_good_000.png",
+    "label": "Screw: Good (Nominal)"
+  },
+  {
+    "category": "screw",
+    "defect_type": "manipulated_front",
+    "is_defect": true,
+    "filename": "screw_manipulated_front_000.png",
+    "url": "/samples/screw/screw_manipulated_front_000.png",
+    "label": "Screw: Manipulated Front"
+  },
+  {
+    "category": "screw",
+    "defect_type": "scratch_head",
+    "is_defect": true,
+    "filename": "screw_scratch_head_000.png",
+    "url": "/samples/screw/screw_scratch_head_000.png",
+    "label": "Screw: Scratch Head"
+  },
+  {
+    "category": "tile",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "tile_good_000.png",
+    "url": "/samples/tile/tile_good_000.png",
+    "label": "Tile: Good (Nominal)"
+  },
+  {
+    "category": "tile",
+    "defect_type": "crack",
+    "is_defect": true,
+    "filename": "tile_crack_000.png",
+    "url": "/samples/tile/tile_crack_000.png",
+    "label": "Tile: Crack"
+  },
+  {
+    "category": "tile",
+    "defect_type": "glue_strip",
+    "is_defect": true,
+    "filename": "tile_glue_strip_000.png",
+    "url": "/samples/tile/tile_glue_strip_000.png",
+    "label": "Tile: Glue Strip"
+  },
+  {
+    "category": "toothbrush",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "toothbrush_good_000.png",
+    "url": "/samples/toothbrush/toothbrush_good_000.png",
+    "label": "Toothbrush: Good (Nominal)"
+  },
+  {
+    "category": "toothbrush",
+    "defect_type": "defective",
+    "is_defect": true,
+    "filename": "toothbrush_defective_000.png",
+    "url": "/samples/toothbrush/toothbrush_defective_000.png",
+    "label": "Toothbrush: Defective"
+  },
+  {
+    "category": "transistor",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "transistor_good_000.png",
+    "url": "/samples/transistor/transistor_good_000.png",
+    "label": "Transistor: Good (Nominal)"
+  },
+  {
+    "category": "transistor",
+    "defect_type": "bent_lead",
+    "is_defect": true,
+    "filename": "transistor_bent_lead_000.png",
+    "url": "/samples/transistor/transistor_bent_lead_000.png",
+    "label": "Transistor: Bent Lead"
+  },
+  {
+    "category": "transistor",
+    "defect_type": "cut_lead",
+    "is_defect": true,
+    "filename": "transistor_cut_lead_000.png",
+    "url": "/samples/transistor/transistor_cut_lead_000.png",
+    "label": "Transistor: Cut Lead"
+  },
+  {
+    "category": "wood",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "wood_good_000.png",
+    "url": "/samples/wood/wood_good_000.png",
+    "label": "Wood: Good (Nominal)"
+  },
+  {
+    "category": "wood",
+    "defect_type": "color",
+    "is_defect": true,
+    "filename": "wood_color_000.png",
+    "url": "/samples/wood/wood_color_000.png",
+    "label": "Wood: Color"
+  },
+  {
+    "category": "wood",
+    "defect_type": "combined",
+    "is_defect": true,
+    "filename": "wood_combined_000.png",
+    "url": "/samples/wood/wood_combined_000.png",
+    "label": "Wood: Combined"
+  },
+  {
+    "category": "zipper",
+    "defect_type": "good",
+    "is_defect": false,
+    "filename": "zipper_good_000.png",
+    "url": "/samples/zipper/zipper_good_000.png",
+    "label": "Zipper: Good (Nominal)"
+  },
+  {
+    "category": "zipper",
+    "defect_type": "broken_teeth",
+    "is_defect": true,
+    "filename": "zipper_broken_teeth_000.png",
+    "url": "/samples/zipper/zipper_broken_teeth_000.png",
+    "label": "Zipper: Broken Teeth"
+  },
+  {
+    "category": "zipper",
+    "defect_type": "combined",
+    "is_defect": true,
+    "filename": "zipper_combined_000.png",
+    "url": "/samples/zipper/zipper_combined_000.png",
+    "label": "Zipper: Combined"
+  }
+]

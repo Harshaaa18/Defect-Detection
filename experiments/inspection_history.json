@@ -1,0 +1,14 @@
+[
+  {
+    "category": "bottle",
+    "defect_type": "broken_large",
+    "score": 3.7969,
+    "threshold": 2.7,
+    "is_anomalous": true,
+    "status_label": "DEFECT DETECTED",
+    "confidence": 0.984,
+    "device": "CPU",
+    "latency_ms": 222.7,
+    "timestamp": "2026-11-26T12:26:18Z"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "category": "screw",
+  "image_auroc": 0.8259889321582292,
+  "pixel_auroc": 0.9722691859524646,
+  "pro_score": 0.6024476771145828,
+  "num_test_images": 160
+}

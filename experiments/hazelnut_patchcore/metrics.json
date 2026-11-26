@@ -1,0 +1,7 @@
+{
+  "category": "hazelnut",
+  "image_auroc": 0.9996428571428572,
+  "pixel_auroc": 0.9811463977328371,
+  "pro_score": 0.5142687370974138,
+  "num_test_images": 110
+}

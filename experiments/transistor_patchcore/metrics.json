@@ -1,0 +1,7 @@
+{
+  "category": "transistor",
+  "image_auroc": 0.9858333333333333,
+  "pixel_auroc": 0.9500617936054364,
+  "pro_score": 0.5008739804878117,
+  "num_test_images": 100
+}

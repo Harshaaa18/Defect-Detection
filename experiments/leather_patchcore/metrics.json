@@ -1,0 +1,7 @@
+{
+  "category": "leather",
+  "image_auroc": 0.9993206521739131,
+  "pixel_auroc": 0.989799542670869,
+  "pro_score": 0.38456314840500083,
+  "num_test_images": 124
+}

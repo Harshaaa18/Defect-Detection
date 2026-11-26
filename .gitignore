@@ -1,0 +1,39 @@
+# Virtual environments & Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.env
+.env.local
+.venv
+env/
+venv/
+ENV/
+
+# Large Datasets (Do NOT push 5GB raw dataset to GitHub)
+DATASET/
+DATASET.zip
+data/raw/
+*.zip
+*.tar.gz
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs and databases
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

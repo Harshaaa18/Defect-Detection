@@ -1,0 +1,7 @@
+{
+  "category": "cable",
+  "image_auroc": 0.9567091454272864,
+  "pixel_auroc": 0.9692113199033057,
+  "pro_score": 0.5294443947357218,
+  "num_test_images": 150
+}

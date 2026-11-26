@@ -1,0 +1,6 @@
+backbone_name: resnet18
+batch_size: 8
+category: screw
+coreset_sampling_ratio: 0.1
+memory_bank_size: 1500
+num_train_images: 320

@@ -1,0 +1,114 @@
+[
+  {
+    "category": "carpet",
+    "image_auroc": 0.9723113964686998,
+    "pixel_auroc": 0.9864175041518531,
+    "pro_score": 0.4267791256637456,
+    "num_test_images": 117
+  },
+  {
+    "category": "grid",
+    "image_auroc": 0.8446115288220551,
+    "pixel_auroc": 0.9618814464298575,
+    "pro_score": 0.5729700750109457,
+    "num_test_images": 78
+  },
+  {
+    "category": "leather",
+    "image_auroc": 0.9993206521739131,
+    "pixel_auroc": 0.989799542670869,
+    "pro_score": 0.38456314840500083,
+    "num_test_images": 124
+  },
+  {
+    "category": "tile",
+    "image_auroc": 0.9736652236652238,
+    "pixel_auroc": 0.9285586157832738,
+    "pro_score": 0.46081426451593394,
+    "num_test_images": 117
+  },
+  {
+    "category": "wood",
+    "image_auroc": 0.9842105263157895,
+    "pixel_auroc": 0.9228204367582824,
+    "pro_score": 0.4085776863859173,
+    "num_test_images": 79
+  },
+  {
+    "category": "bottle",
+    "image_auroc": 1.0,
+    "pixel_auroc": 0.9767456447668973,
+    "pro_score": 0.5476767827539011,
+    "num_test_images": 83
+  },
+  {
+    "category": "cable",
+    "image_auroc": 0.9567091454272864,
+    "pixel_auroc": 0.9692113199033057,
+    "pro_score": 0.5294443947357218,
+    "num_test_images": 150
+  },
+  {
+    "category": "capsule",
+    "image_auroc": 0.9250099720781811,
+    "pixel_auroc": 0.9820302259552022,
+    "pro_score": 0.388084169606264,
+    "num_test_images": 132
+  },
+  {
+    "category": "hazelnut",
+    "image_auroc": 0.9996428571428572,
+    "pixel_auroc": 0.9811463977328371,
+    "pro_score": 0.5142687370974138,
+    "num_test_images": 110
+  },
+  {
+    "category": "metal_nut",
+    "image_auroc": 0.9921798631476051,
+    "pixel_auroc": 0.9693429181681361,
+    "pro_score": 0.6120623967740768,
+    "num_test_images": 115
+  },
+  {
+    "category": "pill",
+    "image_auroc": 0.9457174031642117,
+    "pixel_auroc": 0.9510906912542062,
+    "pro_score": 0.6354759924905952,
+    "num_test_images": 167
+  },
+  {
+    "category": "screw",
+    "image_auroc": 0.8259889321582292,
+    "pixel_auroc": 0.9722691859524646,
+    "pro_score": 0.6024476771145828,
+    "num_test_images": 160
+  },
+  {
+    "category": "toothbrush",
+    "image_auroc": 0.9972222222222222,
+    "pixel_auroc": 0.9867768929588111,
+    "pro_score": 0.5062648816998557,
+    "num_test_images": 42
+  },
+  {
+    "category": "transistor",
+    "image_auroc": 0.9858333333333333,
+    "pixel_auroc": 0.9500617936054364,
+    "pro_score": 0.5008739804878117,
+    "num_test_images": 100
+  },
+  {
+    "category": "zipper",
+    "image_auroc": 0.9648109243697479,
+    "pixel_auroc": 0.9833121050299064,
+    "pro_score": 0.3476755945830027,
+    "num_test_images": 151
+  },
+  {
+    "category": "MEAN",
+    "image_auroc": 0.9578155986992904,
+    "pixel_auroc": 0.9674309814080894,
+    "pro_score": 0.495865260488318,
+    "num_test_images": 1725
+  }
+]

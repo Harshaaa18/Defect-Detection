@@ -1,0 +1,7 @@
+{
+  "category": "toothbrush",
+  "image_auroc": 0.9972222222222222,
+  "pixel_auroc": 0.9867768929588111,
+  "pro_score": 0.5062648816998557,
+  "num_test_images": 42
+}

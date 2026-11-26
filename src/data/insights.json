@@ -1,0 +1,61 @@
+{
+  "totalProjects": 2605,
+  "totalSpecializations": 48,
+  "sectorCounts": {
+    "Engineering Systems": 2605
+  },
+  "custodianCounts": {
+    "KL University Capstone Office": 1549,
+    "- N - A - S - A -": 57,
+    "- a - p - a - c - h - e -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 52,
+    "- h - u - g - g - i - n - g - f - a - c - e -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 38,
+    "- o - p - e - n - c - v -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 23,
+    "- N - I - S - T -   - P - u - b - l - i - c -   - S - a - f - e - t - y -   - C - o - m - m - u - n - i - c - a - t - i - o - n - s -   - R - e - s - e - a - r - c - h -": 18,
+    "- a - r - g - o - p - r - o - j -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 18,
+    "- T - h - e - - - O - p - e - n - R - O - A - D - - - P - r - o - j - e - c - t -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 18,
+    "- o - p - t - u - n - a -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 17,
+    "- r - a - y - - - p - r - o - j - e - c - t -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 17,
+    "- v - e - r - i - l - a - t - o - r -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 17,
+    "- d - b - t - - - l - a - b - s -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 16,
+    "- s - c - i - p - y -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 14,
+    "- o - p - e - n - t - o - f - u -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 14,
+    "- s - c - i - k - i - t - - - l - e - a - r - n -   - G - i - t - H - u - b -   - r - e - p - o - s - i - t - o - r - y -   - n - a - m - e - s - p - a - c - e -": 13
+  },
+  "impactCounts": {
+    "- I - n - d - u - s - t - r - y -   - I - m - p - a - c - t -": 1691,
+    "- R - e - s - e - a - r - c - h -   - I - m - p - a - c - t -": 504,
+    "- S - o - c - i - e - t - a - l -   - I - m - p - a - c - t -": 103,
+    "- S - o - c - i - e - t - a - l -   - I - m - p - a - c - t -   - + -   - E - n - v - i - r - o - n - m - e - n - t - a - l -   - I - m - p - a - c - t -": 17,
+    "- I - n - d - u - s - t - r - y -   - I - m - p - a - c - t -   - + -   - R - e - s - e - a - r - c - h -   - I - m - p - a - c - t -": 248,
+    "- E - n - v - i - r - o - n - m - e - n - t - a - l -   - I - m - p - a - c - t -": 19,
+    "- R - e - s - e - a - r - c - h -   - I - m - p - a - c - t -   - + -   - S - o - c - i - e - t - a - l -   - I - m - p - a - c - t -": 21,
+    "- $ - { - e - s - c - ( - d - i - . - j - o - i - n - ( - ' -   - + -   - ' - ) - | - | - ' - I - m - p - a - c - t -   - n - o - t -   - c - l - a - s - s - i - f - i - e - d - ' - ) - } -": 2
+  },
+  "topTechTags": {
+    "- P - y - t - h - o - n -": 1790,
+    "- D - o - c - k - e - r -": 795,
+    "- S - Q - L -   - / -   - P - o - s - t - g - r - e - S - Q - L -": 459,
+    "- K - u - b - e - r - n - e - t - e - s -": 331,
+    "- G - i - t -   - / -   - R - e - p - r - o - d - u - c - i - b - l - e -   - E - n - v - i - r - o - n - m - e - n - t - s -": 317,
+    "- P - y - T - o - r - c - h -": 280,
+    "- C - / - C - + - + -": 272,
+    "- S - e - c - u - r - i - t - y -   - T - e - s - t - i - n - g -   - / -   - S - I - E - M -": 252,
+    "- S - e - n - s - o - r - s -   - / -   - A - c - t - u - a - t - o - r - s -   - / -   - D - a - t - a -   - A - c - q - u - i - s - i - t - i - o - n -": 208,
+    "- C - I - / - C - D -   - / -   - D - e - v - S - e - c - O - p - s -": 204,
+    "- O - A - u - t - h -   - / -   - I - A - M -   - / -   - A - P - I -   - S - e - c - u - r - i - t - y -": 202,
+    "- A - p - a - c - h - e -   - S - p - a - r - k -": 161,
+    "- O - p - t - i - m - i - s - a - t - i - o - n -   - / -   - O - R -   - S - o - l - v - e - r - s -": 157,
+    "- O - p - e - n - C - V -   - / -   - V - i - s - i - o - n -   - M - o - d - e - l - s -": 139,
+    "- P - r - o - m - e - t - h - e - u - s -   - / -   - G - r - a - f - a - n - a -   - / -   - O - p - e - n - T - e - l - e - m - e - t - r - y -": 121,
+    "- R - E - S - T -   - / -   - G - r - a - p - h - Q - L -   - A - P - I - s -": 121,
+    "- H - u - g - g - i - n - g -   - F - a - c - e -   - T - r - a - n - s - f - o - r - m - e - r - s -": 98,
+    "- J - a - v - a - S - c - r - i - p - t -   - / -   - T - y - p - e - S - c - r - i - p - t -": 98,
+    "- R - e - a - c - t -   - / -   - N - e - x - t - . - j - s -": 84,
+    "- S - p - e - e - c - h -   - / -   - A - u - d - i - o -   - M - L -": 83,
+    "- R - O - S -   - 2 -   - / -   - R - o - b - o - t -   - M - i - d - d - l - e - w - a - r - e -": 82,
+    "- K - a - f - k - a -   - / -   - S - t - r - e - a - m -   - P - r - o - c - e - s - s - i - n - g -": 80,
+    "- G - I - S -   - / -   - R - e - m - o - t - e -   - S - e - n - s - i - n - g -": 70,
+    "- D - a - t - a -   - W - a - r - e - h - o - u - s - e -   - / -   - L - a - k - e - h - o - u - s - e -": 64,
+    "- 3 - D -   - M - o - d - e - l - l - i - n - g -   - / -   - S - p - a - t - i - a - l -   - C - o - m - p - u - t - i - n - g -": 61
+  }
+}

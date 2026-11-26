@@ -1,0 +1,7 @@
+{
+  "category": "wood",
+  "image_auroc": 0.9842105263157895,
+  "pixel_auroc": 0.9228204367582824,
+  "pro_score": 0.4085776863859173,
+  "num_test_images": 79
+}

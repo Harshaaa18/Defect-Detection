@@ -1,0 +1,7 @@
+{
+  "category": "carpet",
+  "image_auroc": 0.9723113964686998,
+  "pixel_auroc": 0.9864175041518531,
+  "pro_score": 0.4267791256637456,
+  "num_test_images": 117
+}

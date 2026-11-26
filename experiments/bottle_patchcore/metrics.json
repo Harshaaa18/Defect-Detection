@@ -1,0 +1,7 @@
+{
+  "category": "bottle",
+  "image_auroc": 1.0,
+  "pixel_auroc": 0.9767456447668973,
+  "pro_score": 0.5476767827539011,
+  "num_test_images": 83
+}

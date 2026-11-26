@@ -1,0 +1,7 @@
+{
+  "category": "capsule",
+  "image_auroc": 0.9250099720781811,
+  "pixel_auroc": 0.9820302259552022,
+  "pro_score": 0.388084169606264,
+  "num_test_images": 132
+}

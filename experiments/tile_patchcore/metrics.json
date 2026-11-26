@@ -1,0 +1,7 @@
+{
+  "category": "tile",
+  "image_auroc": 0.9736652236652238,
+  "pixel_auroc": 0.9285586157832738,
+  "pro_score": 0.46081426451593394,
+  "num_test_images": 117
+}

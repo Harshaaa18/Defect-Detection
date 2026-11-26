@@ -1,0 +1,7 @@
+{
+  "category": "pill",
+  "image_auroc": 0.9457174031642117,
+  "pixel_auroc": 0.9510906912542062,
+  "pro_score": 0.6354759924905952,
+  "num_test_images": 167
+}

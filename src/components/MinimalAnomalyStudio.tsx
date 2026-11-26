@@ -134,6 +134,9 @@ export const MinimalAnomalyStudio: React.FC = () => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const folderInputRef = useRef<HTMLInputElement>(null);
+  // Ignore late responses so an older/default sample cannot replace the most
+  // recently selected image while its inference request is still in flight.
+  const predictionRequestIdRef = useRef(0);
 
   // Auto-update threshold when category changes
   useEffect(() => {
@@ -249,10 +252,16 @@ export const MinimalAnomalyStudio: React.FC = () => {
 
   // Run prediction on dataset image path
   const handleSelectDatasetImage = async (relPath: string, catName: string, overrideThreshold?: number) => {
+    const requestId = ++predictionRequestIdRef.current;
     setIsBrowserOpen(false);
     setIsSamplesModalOpen(false);
     setSelectedCategory(catName);
-    const activeThreshold = overrideThreshold !== undefined ? overrideThreshold : threshold;
+    const activeThreshold = overrideThreshold !== undefined
+      ? overrideThreshold
+      : catName === selectedCategory
+        ? threshold
+        : DEFAULT_THRESHOLDS[catName] || 2.70;
+    setPrediction(null);  // Clear stale result immediately
     setIsAnalyzing(true);
     setErrorMessage(null);
 
@@ -275,20 +284,24 @@ export const MinimalAnomalyStudio: React.FC = () => {
         throw new Error(`Server returned status ${res.status}: ${text.slice(0, 120)}`);
       }
       if (!res.ok) throw new Error(data.error || `Inference failed (${res.status})`);
+      if (requestId !== predictionRequestIdRef.current) return;
       setPrediction(data);
       loadInspections();
     } catch (err: any) {
+      if (requestId !== predictionRequestIdRef.current) return;
       console.error('Inference error:', err);
       setErrorMessage(err.message || 'Inference error');
     } finally {
-      setIsAnalyzing(false);
+      if (requestId === predictionRequestIdRef.current) setIsAnalyzing(false);
     }
   };
 
   // Run prediction on custom uploaded file or sample file
-  const handleFileUpload = async (file: File, catOverride?: string) => {
+  const handleFileUpload = async (file: File, catOverride?: string, existingRequestId?: number) => {
+    const requestId = existingRequestId ?? ++predictionRequestIdRef.current;
     setIsAnalyzing(true);
     setErrorMessage(null);
+    setPrediction(null);  // Clear stale result so user sees spinner with blank images
 
     const targetCategory = catOverride || selectedCategory;
     const formData = new FormData();
@@ -310,30 +323,52 @@ export const MinimalAnomalyStudio: React.FC = () => {
         throw new Error(`Server returned status ${res.status}: ${text.slice(0, 120)}`);
       }
       if (!res.ok) throw new Error(data.error || `Upload failed (${res.status})`);
+      if (requestId !== predictionRequestIdRef.current) return;
       setPrediction(data);
       loadInspections();
     } catch (err: any) {
+      if (requestId !== predictionRequestIdRef.current) return;
       console.error('Upload failed:', err);
       setErrorMessage(err.message || 'Failed to process uploaded image');
     } finally {
-      setIsAnalyzing(false);
+      if (requestId === predictionRequestIdRef.current) setIsAnalyzing(false);
     }
   };
 
   // Run prediction from a bundled sample URL
   const handleSelectSampleUrl = async (sample: SampleItem) => {
+    const requestId = ++predictionRequestIdRef.current;
     setIsSamplesModalOpen(false);
     setSelectedCategory(sample.category);
+    setPrediction(null);  // Clear old result immediately
     setIsAnalyzing(true);
     setErrorMessage(null);
 
     try {
-      // Fetch sample image as blob and send as upload
-      const imgRes = await fetch(sample.url);
-      const blob = await imgRes.blob();
-      const file = new File([blob], sample.filename, { type: blob.type });
-      await handleFileUpload(file, sample.category);
+      // The curated gallery filename contains the original MVTec test filename.
+      // Prefer the dataset path so the API returns the matching ground-truth
+      // mask as well as the image and heatmap. Fall back to upload for any
+      // non-standard manifest entry.
+      const prefix = `${sample.category}_${sample.defect_type}_`;
+      const sourceFilename = sample.filename.startsWith(prefix)
+        ? sample.filename.slice(prefix.length)
+        : '';
+
+      if (sourceFilename) {
+        await handleSelectDatasetImage(
+          `${sample.category}/test/${sample.defect_type}/${sourceFilename}`,
+          sample.category
+        );
+      } else {
+        const imgRes = await fetch(sample.url);
+        if (!imgRes.ok) throw new Error(`Could not load selected sample (${imgRes.status})`);
+        const blob = await imgRes.blob();
+        if (requestId !== predictionRequestIdRef.current) return;
+        const file = new File([blob], sample.filename, { type: blob.type });
+        await handleFileUpload(file, sample.category, requestId);
+      }
     } catch (err: any) {
+      if (requestId !== predictionRequestIdRef.current) return;
       console.error('Sample fetch failed:', err);
       setErrorMessage(err.message || 'Failed to load sample');
       setIsAnalyzing(false);
@@ -719,14 +754,18 @@ export const MinimalAnomalyStudio: React.FC = () => {
                     />
                   ) : (
                     <div className="text-center p-6 text-slate-400 text-xs">
-                      <CheckCircle2 className="w-7 h-7 mx-auto mb-2 text-emerald-400" />
-                      Nominal Sample (Defect-Free)
-                      <div className="text-[10px] text-slate-500 mt-1">No anomalous regions labeled</div>
+                      <ImageIcon className="w-7 h-7 mx-auto mb-2 text-slate-500" />
+                      Ground-truth mask unavailable
+                      <div className="text-[10px] text-slate-500 mt-1">No reference annotation was returned for this image</div>
                     </div>
                   )}
                 </div>
                 <p className="text-[11px] text-slate-500 text-center">
-                  {prediction.mask_image ? 'Official ground-truth pixel annotation' : 'Normal nominal sample (0 defective pixels)'}
+                  {prediction.mask_image
+                    ? prediction.defect_type === 'good'
+                      ? 'Ground truth: no defective pixels'
+                      : 'Ground-truth pixel annotation'
+                    : 'No reference mask available for this input'}
                 </p>
               </div>
 

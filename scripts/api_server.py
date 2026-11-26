@@ -370,18 +370,14 @@ def run_prediction():
                     raw_pil_img = Image.open(cand).convert("RGB")
                     break
             
-            # If still None, pick any sample image for this category
-            if raw_pil_img is None:
-                cat_sample_dir = os.path.join(PROJECT_ROOT, "public", "samples", category)
-                if os.path.exists(cat_sample_dir):
-                    sample_files = [f for f in sorted(os.listdir(cat_sample_dir)) if f.lower().endswith((".png", ".jpg"))]
-                    if sample_files:
-                        chosen = sample_files[0]
-                        raw_pil_img = Image.open(os.path.join(cat_sample_dir, chosen)).convert("RGB")
-                        defect_label = "sample"
-
     if raw_pil_img is None:
         return jsonify({"error": "No image provided via file upload or dataset_path"}), 400
+
+    # A known MVTec "good" sample has a valid all-zero ground-truth mask.
+    # Preserve that information so the UI can distinguish normal samples from
+    # uploads that simply have no reference annotation.
+    if dataset_rel_path and defect_label == "good" and mask_pil_img is None:
+        mask_pil_img = Image.new("L", (224, 224), 0)
 
     # Preprocessing
     img_transform, mask_transform, unnormalize = get_data_transforms(img_size=256, crop_size=224)
@@ -420,7 +416,8 @@ def run_prediction():
     
     mask_b64 = None
     if mask_pil_img is not None:
-        mask_resized = mask_pil_img.resize((224, 224))
+        mask_tensor = mask_transform(mask_pil_img).squeeze(0)
+        mask_resized = Image.fromarray((mask_tensor.numpy() * 255).astype(np.uint8), mode="L")
         mask_b64 = pil_to_base64(mask_resized)
 
     # Record inspection log in MongoDB Atlas or local JSON audit trail

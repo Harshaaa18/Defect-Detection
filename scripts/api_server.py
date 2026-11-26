@@ -13,7 +13,7 @@ import numpy as np
 import cv2
 import torch
 from PIL import Image
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 
 # Add project root to sys.path
@@ -472,6 +472,30 @@ def configure_mongodb():
         "message": message,
         "database": "mongodb_atlas" if success else "local_json"
     })
+
+# Serve Built React Frontend from dist/
+DIST_DIR = os.path.join(PROJECT_ROOT, "dist")
+
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_frontend_ui(path):
+    if path.startswith("api/"):
+        return jsonify({"error": "Endpoint not found"}), 404
+    # Check for direct file in dist
+    if path != "" and os.path.exists(os.path.join(DIST_DIR, path)):
+        return send_from_directory(DIST_DIR, path)
+    # Check public folder (e.g. /samples/...)
+    public_file = os.path.join(PROJECT_ROOT, "public", path)
+    if path != "" and os.path.exists(public_file):
+        return send_from_directory(os.path.join(PROJECT_ROOT, "public"), path)
+    # Fallback to SPA index.html
+    index_file = os.path.join(DIST_DIR, "index.html")
+    if os.path.exists(index_file):
+        return send_from_directory(DIST_DIR, "index.html")
+    return jsonify({
+        "status": "healthy",
+        "message": "Flask API running. Build frontend with 'npm run build' to view UI here."
+    }), 200
 
 
 if __name__ == "__main__":

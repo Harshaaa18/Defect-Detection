@@ -115,6 +115,7 @@ export const MinimalAnomalyStudio: React.FC = () => {
   const [isSamplesModalOpen, setIsSamplesModalOpen] = useState<boolean>(false);
   const [sampleItems, setSampleItems] = useState<SampleItem[]>([]);
   const [sampleFilterCategory, setSampleFilterCategory] = useState<string>('all');
+  const [preloadedSamplesCount, setPreloadedSamplesCount] = useState<number>(0);
 
   // Benchmark stats
   const [benchmarkData, setBenchmarkData] = useState<BenchmarkItem[]>([]);
@@ -166,6 +167,53 @@ export const MinimalAnomalyStudio: React.FC = () => {
     // Automatically load default bottle sample on initial open
     handleSelectDatasetImage('/samples/bottle/bottle_broken_large_000.png', 'bottle', 2.70);
   }, []);
+
+  // Background lazy-load all sample images in small batches once manifest is loaded
+  useEffect(() => {
+    if (sampleItems.length === 0) return;
+    let cancelled = false;
+    let idx = 0;
+    const BATCH_SIZE = 4;
+
+    const loadNextBatch = () => {
+      if (cancelled || idx >= sampleItems.length) return;
+      const batch = sampleItems.slice(idx, idx + BATCH_SIZE);
+      idx += BATCH_SIZE;
+
+      let pending = batch.length;
+      batch.forEach((item) => {
+        const img = new window.Image();
+        img.decoding = 'async';
+        const onDone = () => {
+          if (cancelled) return;
+          setPreloadedSamplesCount((prev) => prev + 1);
+          pending -= 1;
+          if (pending === 0 && idx < sampleItems.length) {
+            scheduleNext();
+          }
+        };
+        img.onload = onDone;
+        img.onerror = onDone;
+        img.src = item.url;
+      });
+    };
+
+    const scheduleNext = () => {
+      if (cancelled) return;
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => loadNextBatch(), { timeout: 500 });
+      } else {
+        setTimeout(loadNextBatch, 100);
+      }
+    };
+
+    // Delay slightly so initial inference and UI paint finish first
+    const startTimer = setTimeout(scheduleNext, 600);
+    return () => {
+      cancelled = true;
+      clearTimeout(startTimer);
+    };
+  }, [sampleItems]);
 
   const loadInspections = () => {
     fetch('/api/inspections?limit=15')
@@ -463,9 +511,19 @@ export const MinimalAnomalyStudio: React.FC = () => {
                 onClick={() => setIsSamplesModalOpen(true)}
                 disabled={isAnalyzing}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-medium text-sm transition"
+                title={
+                  sampleItems.length > 0 && preloadedSamplesCount < sampleItems.length
+                    ? `Preloading samples in background (${preloadedSamplesCount}/${sampleItems.length})`
+                    : 'All sample images cached and ready'
+                }
               >
                 <ImageIcon className="w-4 h-4 text-indigo-600" />
                 Select Sample Images ({sampleItems.length})
+                {sampleItems.length > 0 && preloadedSamplesCount < sampleItems.length && (
+                  <span className="text-[10px] font-mono text-indigo-500">
+                    ({preloadedSamplesCount}/{sampleItems.length})
+                  </span>
+                )}
               </button>
 
               <button

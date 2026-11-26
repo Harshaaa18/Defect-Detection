@@ -9,6 +9,8 @@ import time
 import base64
 import json
 import glob
+import gc
+import threading
 import numpy as np
 import cv2
 import torch
@@ -108,8 +110,11 @@ DEFAULT_THRESHOLDS = {
     "zipper": 2.80
 }
 
-# Cache models & memory banks in memory for sub-30ms repeated inference
+# Keep one model resident on small Render instances. Retaining a separate
+# ResNet and memory bank for every category can exceed the free 512 MB limit.
 MODEL_CACHE = {}
+MODEL_CACHE_LOCK = threading.RLock()
+MAX_CACHED_MODELS = 1
 
 def get_data_root_for_category(category: str):
     for root in DATASET_CANDIDATES:
@@ -120,24 +125,31 @@ def get_data_root_for_category(category: str):
 
 def get_loaded_patchcore(category: str, backbone_name: str = "resnet18"):
     cache_key = f"{category}_{backbone_name}"
-    if cache_key in MODEL_CACHE:
-        return MODEL_CACHE[cache_key]
+    with MODEL_CACHE_LOCK:
+        if cache_key in MODEL_CACHE:
+            return MODEL_CACHE[cache_key]
 
-    mb_path = os.path.join(PROJECT_ROOT, "experiments", f"{category}_patchcore", "memory_bank.npy")
-    if not os.path.exists(mb_path):
-        # Auto-train / fit memory bank if missing
-        print(f"[API Server] Memory bank missing for '{category}'. Fitting now...")
-        fit_category_memory_bank(category=category, backbone_name=backbone_name)
+        # Release a previous category before allocating the next backbone and
+        # nearest-neighbor index. This bounds memory when users switch samples.
+        if len(MODEL_CACHE) >= MAX_CACHED_MODELS:
+            MODEL_CACHE.clear()
+            gc.collect()
 
-    backbone = BackboneFeatureExtractor(backbone_name=backbone_name)
-    patchcore = PatchCore(backbone=backbone)
-    patchcore.load_memory_bank(mb_path)
-    
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    patchcore.backbone.to(device)
+        mb_path = os.path.join(PROJECT_ROOT, "experiments", f"{category}_patchcore", "memory_bank.npy")
+        if not os.path.exists(mb_path):
+            # Auto-train / fit memory bank if missing
+            print(f"[API Server] Memory bank missing for '{category}'. Fitting now...")
+            fit_category_memory_bank(category=category, backbone_name=backbone_name)
 
-    MODEL_CACHE[cache_key] = patchcore
-    return patchcore
+        backbone = BackboneFeatureExtractor(backbone_name=backbone_name)
+        patchcore = PatchCore(backbone=backbone)
+        patchcore.load_memory_bank(mb_path)
+
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        patchcore.backbone.to(device)
+
+        MODEL_CACHE[cache_key] = patchcore
+        return patchcore
 
 @app.route("/api/status", methods=["GET"])
 def get_system_status():
@@ -385,9 +397,12 @@ def run_prediction():
 
     # Load model & predict
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    patchcore = get_loaded_patchcore(category, backbone_name=backbone_name)
-    
-    pred_res = patchcore.predict(img_tensor, device=device)
+    # Serialize model swaps and inference to avoid two category models being
+    # resident concurrently on memory-constrained hosts.
+    with MODEL_CACHE_LOCK:
+        patchcore = get_loaded_patchcore(category, backbone_name=backbone_name)
+        pred_res = patchcore.predict(img_tensor, device=device)
+        del patchcore
     score = float(pred_res["image_score"])
     heatmap = pred_res["anomaly_map"]
     
@@ -461,15 +476,18 @@ def train_category():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"[API Server] Training memory bank for '{category}' on {device}...")
     
-    patchcore = fit_category_memory_bank(
-        category=category,
-        backbone_name=backbone,
-        coreset_sampling_ratio=coreset_ratio
-    )
-    
-    # Update cache
-    cache_key = f"{category}_{backbone}"
-    MODEL_CACHE[cache_key] = patchcore
+    with MODEL_CACHE_LOCK:
+        MODEL_CACHE.clear()
+        gc.collect()
+        patchcore = fit_category_memory_bank(
+            category=category,
+            backbone_name=backbone,
+            coreset_sampling_ratio=coreset_ratio
+        )
+
+        # Keep only the newly fitted category resident.
+        cache_key = f"{category}_{backbone}"
+        MODEL_CACHE[cache_key] = patchcore
 
     duration = round(time.time() - start_time, 2)
     return jsonify({

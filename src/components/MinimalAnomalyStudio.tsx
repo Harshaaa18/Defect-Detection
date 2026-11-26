@@ -163,8 +163,8 @@ export const MinimalAnomalyStudio: React.FC = () => {
 
     loadInspections();
 
-    // Automatically load default bottle preset on initial open
-    handleSelectDatasetImage('bottle/test/broken_large/000.png', 'bottle', 2.70);
+    // Automatically load default bottle sample on initial open
+    handleSelectDatasetImage('/samples/bottle/bottle_broken_large_000.png', 'bottle', 2.70);
   }, []);
 
   const loadInspections = () => {
@@ -219,8 +219,14 @@ export const MinimalAnomalyStudio: React.FC = () => {
         })
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Inference failed');
+      const text = await res.text();
+      let data: any = {};
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(`Server returned status ${res.status}: ${text.slice(0, 120)}`);
+      }
+      if (!res.ok) throw new Error(data.error || `Inference failed (${res.status})`);
       setPrediction(data);
       loadInspections();
     } catch (err: any) {
@@ -248,8 +254,14 @@ export const MinimalAnomalyStudio: React.FC = () => {
         body: formData
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Upload failed');
+      const text = await res.text();
+      let data: any = {};
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(`Server returned status ${res.status}: ${text.slice(0, 120)}`);
+      }
+      if (!res.ok) throw new Error(data.error || `Upload failed (${res.status})`);
       setPrediction(data);
       loadInspections();
     } catch (err: any) {

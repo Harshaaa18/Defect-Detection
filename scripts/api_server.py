@@ -213,7 +213,27 @@ def browse_dataset():
     split_dir = os.path.join(data_root, category, split)
 
     if not os.path.exists(split_dir):
-        return jsonify({"error": f"Path not found: {split_dir}"}), 404
+        # Fallback to public/samples for cloud environments
+        cat_samples_dir = os.path.join(PROJECT_ROOT, "public", "samples", category)
+        if os.path.exists(cat_samples_dir):
+            sample_imgs = []
+            for img_file in sorted(os.listdir(cat_samples_dir)):
+                if img_file.lower().endswith((".png", ".jpg", ".jpeg")):
+                    sample_imgs.append({
+                        "filename": img_file,
+                        "rel_path": f"public/samples/{category}/{img_file}",
+                        "url": f"/samples/{category}/{img_file}"
+                    })
+            return jsonify({
+                "category": category,
+                "split": "samples",
+                "folders": [{
+                    "defect_type": "curated_samples",
+                    "count": len(sample_imgs),
+                    "images": sample_imgs
+                }]
+            })
+        return jsonify({"category": category, "split": split, "folders": []}), 200
 
     folders = []
     for defect_name in sorted(os.listdir(split_dir)):
@@ -313,6 +333,35 @@ def run_prediction():
                 mask_candidate = os.path.join(data_root, category, "ground_truth", defect, f"{base_name}_mask.png")
                 if os.path.exists(mask_candidate):
                     mask_pil_img = Image.open(mask_candidate).convert("L")
+
+        # Fallback to public/samples (for cloud deployments where DATASET/ is excluded)
+        if raw_pil_img is None:
+            clean_rel = dataset_rel_path.replace("\\", "/").lstrip("/")
+            # Check exact file candidate in public/
+            candidates = [
+                os.path.join(PROJECT_ROOT, "public", clean_rel),
+                os.path.join(PROJECT_ROOT, clean_rel),
+                os.path.join(PROJECT_ROOT, "public", "samples", category, os.path.basename(clean_rel))
+            ]
+            # Try to match defect name if available
+            if len(parts) >= 3:
+                defect_label = parts[2] if len(parts) >= 4 else parts[1]
+                candidates.append(os.path.join(PROJECT_ROOT, "public", "samples", category, f"{category}_{defect_label}_{parts[-1]}"))
+            
+            for cand in candidates:
+                if os.path.exists(cand):
+                    raw_pil_img = Image.open(cand).convert("RGB")
+                    break
+            
+            # If still None, pick any sample image for this category
+            if raw_pil_img is None:
+                cat_sample_dir = os.path.join(PROJECT_ROOT, "public", "samples", category)
+                if os.path.exists(cat_sample_dir):
+                    sample_files = [f for f in sorted(os.listdir(cat_sample_dir)) if f.lower().endswith((".png", ".jpg"))]
+                    if sample_files:
+                        chosen = sample_files[0]
+                        raw_pil_img = Image.open(os.path.join(cat_sample_dir, chosen)).convert("RGB")
+                        defect_label = "sample"
 
     if raw_pil_img is None:
         return jsonify({"error": "No image provided via file upload or dataset_path"}), 400

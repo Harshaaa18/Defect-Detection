@@ -20,9 +20,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Upgrade pip and install CPU-only PyTorch with extra-index-url
-RUN pip install --no-cache-dir --upgrade pip
-RUN pip install --no-cache-dir torch torchvision --extra-index-url https://download.pytorch.org/whl/cpu
+# Upgrade pip
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
+# Install CPU-only PyTorch via pinned wheel URLs (avoids --extra-index-url network issues)
+# torch 2.1.0+cpu and torchvision 0.16.0+cpu (~150MB total)
+RUN pip install --no-cache-dir \
+    "torch==2.1.0+cpu" \
+    "torchvision==0.16.0+cpu" \
+    --find-links https://download.pytorch.org/whl/torch_stable.html
 
 # Install remaining backend dependencies
 COPY requirements.txt .

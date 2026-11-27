@@ -31,6 +31,7 @@ interface PredictionResult {
   confidence: number;
   device: string;
   latency_ms: number;
+  timestamp?: number;
   input_image: string;
   heatmap_image: string;
   raw_heatmap_image?: string;
@@ -637,7 +638,7 @@ export const MinimalAnomalyStudio: React.FC = () => {
 
       {/* Analysis Output & Side-by-Side Visual Inspection */}
       {prediction && !isAnalyzing && (
-        <div className="space-y-6">
+        <div key={prediction.timestamp ?? prediction.score} className="space-y-6">
           {/* Decision Verdict Banner */}
           <div className={`rounded-xl p-5 border shadow-sm transition-all ${
             prediction.is_anomalous

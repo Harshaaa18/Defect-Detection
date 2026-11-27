@@ -460,6 +460,7 @@ def run_prediction():
         "device": f"{'CUDA (' + torch.cuda.get_device_name(0) + ')' if device.type == 'cuda' else 'CPU'}",
         "latency_ms": latency_ms,
         "audit_storage": audit_storage,
+        "timestamp": time.time(),
         "input_image": input_b64,
         "heatmap_image": heatmap_b64,
         "raw_heatmap_image": raw_heatmap_b64,
@@ -560,8 +561,9 @@ DIST_DIR = os.path.join(PROJECT_ROOT, "dist")
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_frontend_ui(path):
-    if path.startswith("api/"):
-        return jsonify({"error": "Endpoint not found"}), 404
+    # Protect all /api/* routes from falling through to SPA
+    if path.startswith("api/") or path == "api":
+        return jsonify({"error": "API endpoint not found"}), 404
     # Check for direct file in dist
     if path != "" and os.path.exists(os.path.join(DIST_DIR, path)):
         return send_from_directory(DIST_DIR, path)
